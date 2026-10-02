@@ -27,7 +27,7 @@ public class ExerciciosScanner {
         if(nota>=7){
             System.out.println("Aprovada");
         }
-        else if(nota < 7 || nota >= 5.9){
+        else if(nota < 7 && nota >= 5.9){
             System.out.println("Recuperação");
         }
         else{
