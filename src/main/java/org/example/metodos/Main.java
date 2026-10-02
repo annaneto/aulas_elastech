@@ -6,19 +6,20 @@ public class Main {
     static void main() {
 
         Scanner sc = new Scanner(System.in);
+        //1
 
         Utilidades.boasVindas();
 
-        Utilidades.saudacao("Anna");
+        //2
 
-        // 3 — Crie um método dobro(int numero) que devolve o dobro do número recebido.
-        //  No main, chame ele e mostre o resultado.
+        Utilidades.saudar("Anna");
+
+        //3
 
         double valor = Utilidades.dobro(3.5);
         System.out.println(valor);
 
-        // 4 — Crie um método calcularMedia(double n1, double n2) que devolve a média das duas notas. No main,
-        // peça as duas notas com Scanner e mostre a média com duas casas decimais.
+        //4
 
         System.out.println("Digite a primeira nota");
         double valor1 = sc.nextDouble();
@@ -30,8 +31,7 @@ public class Main {
         double media = Utilidades.calcularMedia(valor1, valor2);
         System.out.println(media);
 
-        //5 — Crie um método ehMaiorDeIdade(int idade) que devolve true ou false. No main, peça a idade e use o retorno
-        // do método dentro de um if para imprimir se a pessoa é maior ou menor de idade.
+        //5
 
         System.out.println("Digite a sua idade: ");
         int idade = sc.nextInt();
@@ -43,13 +43,7 @@ public class Main {
             System.out.println("Você é menor de idade!");
         }
 
-//        6 — Crie três métodos com o mesmo nome somar:
-//
-//        um que recebe dois inteiros
-//        um que recebe três inteiros
-//        um que recebe dois decimais
-//
-//        No main, chame os três e veja o Java escolher sozinho qual usar.
+        //6
 
         int numero1 = 10;
         int numero2 = 8;
@@ -61,10 +55,12 @@ public class Main {
         int resultado2 = Utilidades.somar(numero1, numero2, numero3);
         double resultado3 = Utilidades.somar(numero4, numero5);
 
-        System.out.printf("Os resultados são %d, %d, %.2f", resultado1, resultado2, resultado3);
+        System.out.printf("Os resultados são %d, %d, %.2f\n", resultado1, resultado2, resultado3);
 
 
-
+        //7
+        Utilidades.saudacao();
+        Utilidades.saudacao("Anna");
 
     }
 }
