@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Scanner;
 
-public class exerciciosArraylist {
+public class ExerciciosArraylist {
     static void main() {
         // Crie uma lista vazia de nomes. Adicione três nomes e imprima a lista inteira.
         ArrayList<String> listaNomes = new ArrayList<>();
