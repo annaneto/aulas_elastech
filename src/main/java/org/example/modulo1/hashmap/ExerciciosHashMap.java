@@ -1,4 +1,4 @@
-package org.example.modulo1.arraylist.hashmap;
+package org.example.modulo1.hashmap;
 
 import java.util.HashMap;
 import java.util.List;
