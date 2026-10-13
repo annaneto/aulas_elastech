@@ -8,7 +8,7 @@ public class Professora extends Pessoa {
         System.out.println(this.nome + " lançou a nota " + nota + " para a aluna " + aluna);
     }
 
-    @Override
+    //@Override
     public void apresentar(String cargo) {
         System.out.println("Oi, sou " + nome + ", " + cargo);
     }
