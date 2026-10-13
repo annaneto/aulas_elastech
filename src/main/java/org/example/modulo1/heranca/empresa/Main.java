@@ -1,4 +1,4 @@
-package org.example.modulo1.herancaPolimorfismo.empresa;
+package org.example.modulo1.heranca.empresa;
 
 public class Main {
     static void main() {

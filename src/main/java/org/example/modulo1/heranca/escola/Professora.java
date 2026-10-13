@@ -1,4 +1,4 @@
-package org.example.modulo1.herancaPolimorfismo.escola;
+package org.example.modulo1.heranca.escola;
 
 public class Professora extends Pessoa{
 
