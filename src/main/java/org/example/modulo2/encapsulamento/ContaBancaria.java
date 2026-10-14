@@ -1,4 +1,4 @@
-package org.example.modulo1.encapsulamento;
+package org.example.modulo2.encapsulamento;
 
 public class ContaBancaria {
 
