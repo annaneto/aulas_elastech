@@ -48,6 +48,8 @@ public class ExerciciosHashMap {
         System.out.println(produtos.getOrDefault("Calça Jeans", 0));
         System.out.println(produtos.get("Calça Jeans"));
 
+        //5
+
         HashMap<String, Double> notas = new HashMap<>();
         notas.put("Sofia", 10.8);
         notas.put("Mauricio", 8.0);
