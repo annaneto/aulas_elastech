@@ -1,5 +1,6 @@
 package org.example.modulo2.petshop;
 
+import java.util.ArrayDeque;
 import java.util.HashSet;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -33,16 +34,18 @@ public class Petshop {
         Scanner sc = new Scanner(System.in);
         Pet[] pets = new Pet[5];
         HashSet<String> especies = new HashSet<>();
+        ArrayDeque<String> fila = new ArrayDeque<>();
         int totalPets = 0;
         int escolha = 1;
         while(escolha != 0) {
             System.out.println("Digite sua opção: \n" +
                     "Digite 1 para cadastrar um pet\n" +
                     "Digite 2 para ver lista de pets\n" +
-                    "Digite 4 para ver lista de especies cadastradas" +
-                    "Digite 3 para consultar um pet\n" +
-                    "Digite 4 para adicionar um pet na fila de banho" +
-                    "Digite 5 para sair ");
+                    "Digite 3 para ver lista de especies cadastradas\n" +
+                    "Digite 4 para consultar um pet\n" +
+                    "Digite 5 para adicionar um pet na fila de banho\n" +
+                    "Digite 6 para atender um pet\n" +
+                    "Digite 7 para sair ");
            try {
                 escolha = sc.nextInt();
                 sc.nextLine();
@@ -85,13 +88,35 @@ public class Petshop {
                             }
 
                         }
+                        break;
                     case 4:
                         System.out.println("=== Especies Cadastradas ===\n");
                         for(String e : especies){
                             System.out.println(e);
                         }
-
+                        break;
                     case 5:
+                        System.out.println("Nome do pet que vai entrar na fila: ");
+                        nome = sc.nextLine();
+                        fila.add(nome);
+                        System.out.printf("[%s] entrou na fila \n", nome);
+                        System.out.println("Fila agora:" + fila);
+
+
+
+                        break;
+                    case 6:
+                        if(!fila.isEmpty()) {
+                            System.out.println("Próximo da fila: " + fila.peek());
+                            System.out.println("Atendendo " + fila.poll());
+                            System.out.println("Fila agora: " + fila);
+                        }else{
+                            System.out.println("A fila de pets está vazia");
+                        }
+
+                        break;
+
+                    case 7:
                         escolha = 0;
                         break;
                     default:
@@ -101,7 +126,6 @@ public class Petshop {
             }catch(InputMismatchException ex){
                System.out.println("Você digitou uma entrada inválida, digite novamente: ");
                sc.nextLine();
-               escolha = sc.nextInt();
            }
         }
 
