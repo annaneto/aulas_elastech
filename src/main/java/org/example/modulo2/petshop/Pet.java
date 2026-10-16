@@ -6,6 +6,14 @@ public class Pet {
     public double peso;
     public String porte;
 
+    public Pet(String nome, String especie, double peso){
+        this.nome = nome;
+        this.especie = especie;
+        this.peso = peso;
+        //this.porte = this.verificarPorte(peso);
+    }
+
+
     public void imprimirFicha(){
 
         System.out.println("=== FICHA DO PET ===");
@@ -23,6 +31,12 @@ public class Pet {
         }
         else{
             this.porte = "Grande";
+
         }
     }
+
+    public String emitirSom() {
+        return "Som do pet";
+    }
+
 }
