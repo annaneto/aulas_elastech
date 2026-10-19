@@ -11,7 +11,7 @@ Questão 2
 
 a) Príncipio S, Uma classe está com diversas funções. eu criaria uma classe para cada tarefa.
 
-b) Príncipio I, Todos esses If Elses deveriam ser na verdade uma interface e classes as implementando.
+b) Príncipio O, Todos esses If Elses deveriam ser na verdade uma interface e classes as implementando.
 
 c) Príncipio D, o método finalizar que está na classe pedidoService, de outra ckasse di tipo MysqlRepositorio.
 
