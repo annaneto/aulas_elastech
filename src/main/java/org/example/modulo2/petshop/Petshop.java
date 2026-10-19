@@ -70,9 +70,9 @@ public class Petshop {
                         }else {
                             Pet animal = new Pet(nome, especie, peso);
                             animal.verificaPorte(peso);
-                            especies.add(especie);
                             pets.add(animal);
                         }
+                        especies.add(especie);
                         break;
 
 
@@ -80,7 +80,7 @@ public class Petshop {
                     case 2:
                         System.out.println("=== PETS CADASTRADOS ===");
                         for (Pet pet : pets) {
-                            Auxiliares.imprimePet(pet);
+                            Auxiliares.imprimePet(pet, "ficha completamente");
 
                             Auxiliares.imprimeLinha();
                         }
@@ -151,6 +151,5 @@ public class Petshop {
            }
         }
     }
-
 
 }

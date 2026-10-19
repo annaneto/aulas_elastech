@@ -14,12 +14,15 @@ public class Auxiliares {
                 "Digite 8 para sair");
     }
 
-    static public void imprimePet(Pet pet){
+    static public void imprimePet(Pet pet, String titulo){
         System.out.println("Nome: " + pet.nome + "\nEspécie: " + pet.especie + "\nPeso: "
                 + pet.peso + "\nPorte: " + pet.porte + "\n" + pet.nome + " faz: " + pet.emitirSom());
     }
 
-    static public void imprimeLinha(){
+    static public void imprimePet(Pet pet){
+        System.out.println("Nome do pet: " + pet.nome);
+    }
+    static public void imprimeLinha() {
         System.out.println("===========================");
     }
 
