@@ -1,9 +1,6 @@
 package org.example.modulo2.petshop;
 
-import java.util.ArrayDeque;
-import java.util.HashSet;
-import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.*;
 
 public class Petshop {
 
@@ -32,20 +29,24 @@ public class Petshop {
 //        System.out.println("Nome: " + nome + "\nEspécie: " + especie + "\nPeso: " + peso + "\nPorte: " + porte);
 
         Scanner sc = new Scanner(System.in);
-        Pet[] pets = new Pet[5];
+        ArrayList<Pet> pets = new ArrayList<>();
         HashSet<String> especies = new HashSet<>();
         ArrayDeque<String> fila = new ArrayDeque<>();
-        int totalPets = 0;
+
+        // Interface com os serviços
+
+        ArrayList<Servico> servicos = new ArrayList<>();
+        servicos.add(new Banho());
+        servicos.add(new Tosa());
+        servicos.add(new Consulta());
+
+
+
         int escolha = 1;
         while(escolha != 0) {
-            System.out.println("Digite sua opção: \n" +
-                    "Digite 1 para cadastrar um pet\n" +
-                    "Digite 2 para ver lista de pets\n" +
-                    "Digite 3 para ver lista de especies cadastradas\n" +
-                    "Digite 4 para consultar um pet\n" +
-                    "Digite 5 para adicionar um pet na fila de banho\n" +
-                    "Digite 6 para atender um pet\n" +
-                    "Digite 7 para sair ");
+
+            Auxiliares.opcoes();
+
            try {
                 escolha = sc.nextInt();
                 sc.nextLine();
@@ -58,37 +59,52 @@ public class Petshop {
                         System.out.println("Digite o peso do seu animal: ");
                         double peso = sc.nextDouble();
                         sc.nextLine();
-                        Pet animal = new Pet();
-                        animal.nome = nome;
-                        animal.especie = especie;
-                        animal.peso = peso;
-                        animal.verificaPorte(peso);
+                        if (especie.equalsIgnoreCase("cachorro")) {
+                            Pet cao = new Cachorro(nome, peso);
+                            cao.verificaPorte(peso);
+                            pets.add(cao);
+                        } else if (especie.equalsIgnoreCase("gato")) {
+                            Pet gato = new Gato(nome, peso);
+                            gato.verificaPorte(peso);
+                            pets.add(gato);
+                        }else {
+                            Pet animal = new Pet(nome, especie, peso);
+                            animal.verificaPorte(peso);
+                            pets.add(animal);
+                        }
                         especies.add(especie);
-                        pets[totalPets] = animal;
-                        totalPets++;
                         break;
+
+
+
                     case 2:
                         System.out.println("=== PETS CADASTRADOS ===");
-                        for (int i = 0; i < totalPets; i++) {
-                            System.out.println("Nome: " + pets[i].nome + "\nEspécie: " + pets[i].especie + "\nPeso: "
-                                    + pets[i].peso + "\nPorte: " + pets[i].porte + "\n========================");
+                        for (Pet pet : pets) {
+                            Auxiliares.imprimePet(pet, "ficha completamente");
+
+                            Auxiliares.imprimeLinha();
                         }
-                        System.out.println("Total de pets cadastrados: " + totalPets);
+                        System.out.println("Total de pets cadastrados: " + pets.size());
                         break;
 
                     case 3:
                         System.out.println("Digite do pet que deseja encontrar: ");
                         String nomeProcurado = sc.nextLine();
-                        for (int i = 0; i < totalPets; i++) {
-                            if (pets[i].nome.equalsIgnoreCase(nomeProcurado)) {
-                                System.out.println("Encontrado: " + pets[i].nome + " (" + pets[i].especie + ") - "
-                                        + pets[i].peso);
-                            } else {
+                        boolean encontrado = false;
+                        for (Pet pet : pets) {
+                            if (pet.nome.equalsIgnoreCase(nomeProcurado)) {
+                                System.out.printf("Encontrado: ");
+                                encontrado = true;
+                                Auxiliares.imprimePet(pet);
+                                break;
+
+                            }
+                        }
+                        if(!encontrado) {
                                 System.out.println("Pet não encontrado");
                             }
-
-                        }
                         break;
+
                     case 4:
                         System.out.println("=== Especies Cadastradas ===\n");
                         for(String e : especies){
@@ -115,8 +131,14 @@ public class Petshop {
                         }
 
                         break;
-
                     case 7:
+                        System.out.println("Digite o nome do pet que será atendido: ");
+                        nome = sc.nextLine();
+                        for(Servico servico : servicos){
+                            servico.executar(nome);
+                        }
+                        break;
+                    case 8:
                         escolha = 0;
                         break;
                     default:
@@ -128,6 +150,6 @@ public class Petshop {
                sc.nextLine();
            }
         }
-
     }
+
 }
